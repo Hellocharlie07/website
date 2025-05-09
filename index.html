@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional English and Chinese tutoring services by Charlie">
+    <meta name="theme-color" content="#003366">
+    <title>Hello Charlie - English Tutor</title>
+
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://calendly.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://calendly.com">
+
+    <!-- Font Optimization -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Dyslexic:wght@400;700&display=swap">
+    </noscript>
+
+    <style>
+        /* Critical CSS */
+        :root {
+            --primary: #003366;
+            --secondary: #2C3E50;
+            --accent: #E67E22;
+            --dark: #2C3E50;
+            --light: #F7F9F9;
+            --background: #F0F0F0;
+            --text: #2C3E50;
+            --card-bg: #F5F5F5;
+            --header-bg: #003366;
+            --footer-bg: #003366;
+            --nav-bg: #003366;
+            --shadow: rgba(0,0,0,0.1);
+            --focus-outline: 2px solid var(--accent);
+            --font-size: 16px;
+            --line-height: 1.6;
+        }
+
+        /* Dark theme variables */
+        [data-theme="dark"] {
+            --primary: #1a4a7c;
+            --secondary: #34495e;
+            --background: #1a1a1a;
+            --text: #ffffff;
+            --card-bg: #2d2d2d;
+            --header-bg: #1a4a7c;
+            --footer-bg: #1a4a7c;
+            --nav-bg: #1a4a7c;
+            --shadow: rgba(255,255,255,0.1);
+            --light: #2d2d2d;
+            --accent: #ffa500;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background-color: var(--accent);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+
+        /* Accessibility Controls */
+        .accessibility-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+        }
+
+        .accessibility-controls button {
+            margin: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Skeleton Loading */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Error Boundary */
+        .error-boundary {
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ff0000;
+            background-color: #fff0f0;
+            border-radius: 8px;
+        }
+
+        /* Theme Toggle and Language Switch Container */
+        .top-controls {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 1002;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background-color: #666666;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle span {
+            display: none;
+        }
+
+        /* Language Switch */
+        .language-switch {
+            position: relative;
+            z-index: 1002;
+        }
+
+        .language-button {
+            background-color: #666666;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .language-button:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 0.5rem;
+            box-shadow: 0 2px 10px var(--shadow);
+            display: none;
+            min-width: 120px;
+            z-index: 1003;
+        }
+
+        .language-dropdown.show {
+            display: block;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            color: var(--text);
+        }
+
+        .language-option:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .language-option span {
+            margin-left: 0.5rem;
+        }
+
+        /* Accessibility Improvements */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Update existing styles to use CSS variables */
+        .nav-menu {
+            background-color: var(--nav-bg);
+            color: var(--text);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--text);
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            color: var(--text);
+            border-radius: 10px;
+            padding: 0.8rem;
+            box-shadow: 0 4px 6px var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+            width: calc(33.33% - 1.33rem);
+            flex: 0 0 auto;
+            border: 2px solid transparent;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .service-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px var(--shadow);
+            border-color: var(--accent);
+            background-color: rgba(230, 126, 34, 0.05);
+        }
+
+        .service-card:hover h2 {
+            color: var(--accent);
+        }
+
+        .service-card:hover .price {
+            color: var(--accent);
+        }
+
+        .service-card:hover .book-now-button {
+            background-color: var(--accent);
+        }
+
+        .service-card img {
+            width: 100%;
+            max-width: 120px;
+            border-radius: 8px;
+            margin: 0 auto 0.3rem;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Lazy Loading Styles */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary: #0000FF;
+                --accent: #FF0000;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu {
+            background-color: var(--primary);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 2rem 6rem;
+            margin-bottom: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo-subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            position: fixed;
+            top: 0.5rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            z-index: 1001;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.7rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .services-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .scroll-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: calc(100% + 6rem);
+            left: -3rem;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .scroll-arrow {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+            pointer-events: auto;
+            opacity: 0.8;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .scroll-arrow:hover {
+            background-color: var(--accent);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .scroll-arrow.left {
+            left: 0;
+        }
+
+        .scroll-arrow.right {
+            right: 0;
+        }
+
+        .services-grid {
+            display: flex;
+            overflow-x: auto;
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            scroll-behavior: smooth;
+            gap: 2rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .services-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .service-card h2 {
+            color: var(--text);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .service-card p {
+            color: var(--text);
+            flex-grow: 1;
+            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .price {
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0.3rem 0;
+            text-align: center;
+        }
+
+        .book-now-button {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 0.3rem;
+            align-self: center;
+        }
+
+        .book-now-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .teacher-references {
+            background-color: var(--secondary);
+            color: var(--text);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .teacher-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .teacher-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .teacher-card h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .teacher-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .teacher-references a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .teacher-references a:hover {
+            color: white;
+        }
+
+        .about-section {
+            background-color: var(--card-bg);
+            color: var(--text);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .about-section h2 {
+            color: var(--text);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 51, 102, 0.8);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 3rem;
+        }
+
+        .video-grid {
+            display: flex;
+            overflow-x: auto;
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            scroll-behavior: smooth;
+            gap: 2rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .video-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .video-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+            width: calc(100% - 2rem);
+            flex: 0 0 auto;
+            border: 2px solid transparent;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            border-color: var(--accent);
+            background-color: rgba(230, 126, 34, 0.05);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .video-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .video-card p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+
+        /* Focus Styles */
+        *:focus {
+            outline: var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Top Controls Container -->
+    <div class="top-controls">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <span aria-hidden="true">☀️</span>
+            <span class="sr-only">Toggle dark mode</span>
+        </button>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading" id="loadingScreen" role="status" aria-live="polite">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <span class="sr-only">Loading website content...</span>
+    </div>
+
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+        <ul role="list">
+            <li><a href="index.html" role="link">HOME</a></li>
+            <li><a href="about.html" role="link">ABOUT</a></li>
+            <li><a href="photos.html" role="link">PHOTOS</a></li>
+            <li><a href="testimonials.html" role="link">TESTIMONIALS</a></li>
+            <li><a href="contact.html" role="link">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" role="banner">
+        <div class="logo" role="heading" aria-level="1">HELLO CHARLIE</div>
+        <div class="logo-subtitle" role="heading" aria-level="2">ENGLISH TUTOR</div>
+        <div class="social-links" role="list">
+            <a href="mailto:Hellocharliesj@gmail.com" role="link">Gmail: Hellocharliesj@gmail.com</a>
+            <a href="https://www.facebook.com/HelloCharlie07/" target="_blank" rel="noopener noreferrer" role="link">Facebook (@HelloCharlie07)</a>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <!-- Add Back to Top Button -->
+        <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
+        <section id="videos">
+            <div class="video-container">
+                <div class="scroll-arrows">
+                    <button class="scroll-arrow left" onclick="scrollVideos('left')">←</button>
+                    <button class="scroll-arrow right" onclick="scrollVideos('right')">→</button>
+                </div>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/w66osNQ-l-U" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                        <h3>Meet Charlie</h3>
+                    </div>
+                    <div class="video-card">
+                        <video controls width="100%" height="400" preload="metadata">
+                            <source src="firstproject/videos/1.mp4" type="video/mp4">
+                            <source src="firstproject/videos/1.webm" type="video/webm">
+                            <source src="firstproject/videos/1.ogg" type="video/ogg">
+                            <p>Your browser doesn't support HTML5 video. Here is a <a href="firstproject/videos/1.mp4">link to the video</a> instead.</p>
+                        </video>
+                        <h3>Referral Video</h3>
+                    </div>
+                    <div class="video-card">
+                        <video controls width="100%" height="400" preload="metadata">
+                            <source src="firstproject/videos/2.mp4" type="video/mp4">
+                            <p>Your browser doesn't support HTML5 video. Here is a <a href="firstproject/videos/2.mp4">link to the video</a> instead.</p>
+                        </video>
+                        <h3>Referral Video</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>Meet Charlie</h2>
+            <p>Hi there!<br>
+            My name is Charlie</p>
+            <p>I am an 18-year-old tutor who's passionate about helping kids learn English and Chinese in a way that's fun, engaging, and effective.</p>
+            
+            <p>I was born and raised in Los Angeles, California, but I've been living in Taiwan for the past 12 years. This unique experience has given me a deep understanding of both cultures and languages, and the importance of recycling, and I love sharing that knowledge with others.</p>
+
+            <p>My teaching style is like having a big brother guide you through learning - it's all about making learning an adventure! I believe that kids learn best when they're having fun, so I incorporate a variety of creative activities into my lessons, including:</p>
+        </section>
+
+        <section id="services">
+            <div class="services-container">
+                <div class="scroll-arrows">
+                    <button class="scroll-arrow left" onclick="scrollServices('left')">←</button>
+                    <button class="scroll-arrow right" onclick="scrollServices('right')">→</button>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h2>Friendly Conversation</h2>
+                        <img class="lazy-load" data-src="firstproject/image/Meeting.jpg" alt="Friendly Conversation">
+                        <p>I'm here to help you speak English with confidence! We'll use fun conversation topics to help you sound like a native speaker.</p>
+                        <div class="price">$25.00/hr</div>
+                        <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="book-now-button">Pay Now</a>
+                    </div>
+
+                    <div class="service-card">
+                        <h2>Minecraft Education</h2>
+                        <img class="lazy-load" data-src="firstproject/image/generation Ai.avif" alt="Minecraft Education">
+                        <p>We build worlds, solve puzzles, and learn coding concepts while having a blast in the Minecraft universe.</p>
+                        <p style="color: var(--accent); font-size: 0.85rem; margin-top: -0.5rem;">*Must have Minecraft Education account</p>
+                        <div class="price">$25.00/hr</div>
+                        <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="book-now-button">Start Coding!</a>
+                    </div>
+
+                    <div class="service-card">
+                        <h2>Roblox/Minecraft</h2>
+                        <img class="lazy-load" data-src="firstproject/image/Gaming.png" alt="Roblox Minecraft">
+                        <p>We play games, complete challenges, and build our language skills through interactive gameplay.</p>
+                        <div class="price">$20.00/hr</div>
+                        <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="book-now-button">Start Gaming!</a>
+                    </div>
+
+                    <div class="service-card">
+                        <h2>Cardboard/Origami</h2>
+                        <img class="lazy-load" data-src="firstproject/image/Cardboard.jpg" alt="Cardboard and Origami Crafts">
+                        <p>We build amazing structures, create characters, and learn new vocabulary through hands-on projects. Folding paper into beautiful shapes is a fantastic way to practice fine motor skills and learn about different cultures.</p>
+                        <div class="price">$25.00/hr</div>
+                        <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="book-now-button">Start Crafting!</a>
+                    </div>
+
+                    <div class="service-card">
+                        <h2>Piano/Guitar/Ukulele</h2>
+                        <img class="lazy-load" data-src="firstproject/image/Piano.jpg" alt="Music Lessons">
+                        <p>Music is a powerful tool for learning, and I often incorporate it into my lessons to help kids learn new words, phrases, and even grammar concepts.</p>
+                        <div class="price">$25.00/hr</div>
+                        <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="book-now-button">Start Jamming!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="teacher-references">
+            <div class="teacher-card">
+                <h2>Teacher RJ</h2>
+                <p>Check out my Uncle's website: <a href="https://rjenglishtutor.wixsite.com/english" target="_blank">rjenglishtutor.wixsite.com/english</a></p>
+            </div>
+            
+            <div class="teacher-card">
+                <h2>Teacher Jaimie</h2>
+                <p>Check out my sister's website: <a href="https://jaimieenglishtutor.wixsite.com/learn" target="_blank">jaimieenglishtutor.wixsite.com/learn</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>© 2023 by Hello Charlie English Tutor</p>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.setAttribute('aria-pressed', theme === 'dark');
+            
+            // Update theme toggle icon
+            const themeIcon = themeToggle.querySelector('span[aria-hidden="true"]');
+            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+            themeIcon.style.display = 'block';
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        }
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 
+                          (prefersDarkScheme.matches ? 'dark' : 'light');
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        });
+
+        // Lazy Loading Images
+        document.addEventListener('DOMContentLoaded', () => {
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        });
+
+        // Smooth Scroll Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const section = document.querySelector(this.getAttribute('href'));
+                    if(section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Back to Top Button Functionality
+        window.onscroll = function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Service Card Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.service-card').forEach((card) => {
+            observer.observe(card);
+        });
+
+        // Existing scroll functions
+        function scrollServices(direction) {
+            const servicesGrid = document.querySelector('.services-grid');
+            const cardWidth = servicesGrid.firstElementChild.offsetWidth;
+            const gap = 32; // 2rem gap in pixels
+            const scrollAmount = cardWidth + gap;
+            
+            if (direction === 'left') {
+                servicesGrid.scrollLeft -= scrollAmount;
+            } else {
+                servicesGrid.scrollLeft += scrollAmount;
+            }
+        }
+
+        function scrollVideos(direction) {
+            const videoGrid = document.querySelector('.video-grid');
+            const cardWidth = videoGrid.firstElementChild.offsetWidth;
+            const gap = 32; // 2rem gap in pixels
+            const scrollAmount = cardWidth + gap;
+            
+            if (direction === 'left') {
+                videoGrid.scrollLeft -= scrollAmount;
+            } else {
+                videoGrid.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // Performance Monitoring
+        window.addEventListener('load', () => {
+            // Report page load time
+            const timing = performance.timing;
+            const loadTime = timing.loadEventEnd - timing.navigationStart;
+            console.log(`Page load time: ${loadTime}ms`);
+
+            // Report resource timing
+            const resources = performance.getEntriesByType('resource');
+            resources.forEach(resource => {
+                console.log(`${resource.name} loaded in ${resource.duration}ms`);
+            });
+        });
+
+        // Accessibility Announcements
+        function announce(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('role', 'status');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.className = 'sr-only';
+            announcement.textContent = message;
+            document.body.appendChild(announcement);
+            setTimeout(() => announcement.remove(), 1000);
+        }
+
+        // Theme Toggle with Announcement
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            announce(`Switched to ${isDark ? 'light' : 'dark'} mode`);
+        });
+
+        // Image Loading Optimization
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Progress Bar
+        window.addEventListener('load', () => {
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = '100%';
+            setTimeout(() => progressBar.style.opacity = '0', 500);
+        });
+
+        // Error Boundary
+        window.addEventListener('error', (event) => {
+            const errorBoundary = document.createElement('div');
+            errorBoundary.className = 'error-boundary';
+            errorBoundary.innerHTML = `
+                <h2>Something went wrong</h2>
+                <p>We're sorry, but there was an error loading this content.</p>
+                <button onclick="window.location.reload()">Try Again</button>
+            `;
+            document.body.appendChild(errorBoundary);
+        });
+
+        // Offline Support
+        window.addEventListener('online', () => {
+            announce('You are back online');
+        });
+
+        window.addEventListener('offline', () => {
+            announce('You are offline. Some features may not be available.');
+        });
+
+        // Video Debugging
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            if (video) {
+                video.addEventListener('error', function(e) {
+                    console.error('Video error:', video.error);
+                    console.log('Video source:', video.currentSrc);
+                    console.log('Video readyState:', video.readyState);
+                });
+
+                video.addEventListener('loadedmetadata', function() {
+                    console.log('Video metadata loaded');
+                    console.log('Video duration:', video.duration);
+                });
+
+                video.addEventListener('canplay', function() {
+                    console.log('Video can play');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
