@@ -76,6 +76,28 @@ body {
     color: var(--accent);
 }
 
+/* Hamburger Menu Button */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
 /* Theme Toggle */
 .theme-toggle {
     position: fixed;
@@ -184,8 +206,20 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
     .nav-menu {
-        padding: 0.5rem;
+        padding: 0;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+
+    .nav-menu.active {
+        height: auto;
+        padding: 1rem;
     }
 
     .nav-menu ul {
@@ -219,6 +253,19 @@ footer {
         height: 40px;
         font-size: 20px;
     }
+
+    /* Hamburger Animation */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -237,7 +284,11 @@ footer {
     }
 
     .nav-menu {
-        padding: 0.3rem;
+        padding: 0;
+    }
+
+    .nav-menu.active {
+        padding: 0.5rem;
     }
 
     .nav-menu ul {
@@ -247,6 +298,11 @@ footer {
     .nav-menu a {
         padding: 0.6rem;
         font-size: 0.9rem;
+    }
+
+    .hamburger {
+        top: 0.5rem;
+        right: 0.5rem;
     }
 }
 
@@ -264,17 +320,21 @@ footer {
 /* Fix for landscape orientation on mobile */
 @media screen and (max-height: 480px) and (orientation: landscape) {
     .nav-menu {
-        position: relative;
+        position: fixed;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .nav-menu.active {
+        height: auto;
     }
 
     .nav-menu ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
     }
 
     .nav-menu li {
-        width: auto;
+        width: 100%;
     }
 }
 
