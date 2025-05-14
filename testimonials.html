@@ -84,11 +84,102 @@
             margin-top: 0.5rem;
         }
 
+        .video-testimonial {
+            grid-column: 1 / -1;
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .video-testimonial iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+            border-radius: 4px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .showcase-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .showcase-video,
+        .showcase-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .showcase-overlay h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .showcase-overlay p {
+            margin: 0.5rem 0 0;
+            font-size: 0.9rem;
+        }
+
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .share-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-button:hover {
+            background: var(--accent);
+        }
+
         /* Responsive adjustments for testimonials page */
         @media screen and (max-width: 992px) {
             .testimonials-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 1.5rem;
+            }
+
+            .video-testimonial iframe {
+                height: 400px;
             }
         }
 
@@ -100,6 +191,14 @@
 
             .testimonial-card {
                 padding: 1.5rem;
+            }
+
+            .video-testimonial {
+                padding: 1.5rem;
+            }
+
+            .video-testimonial iframe {
+                height: 350px;
             }
         }
 
@@ -119,6 +218,10 @@
 
             .testimonial-content {
                 font-size: 0.95rem;
+            }
+
+            .video-testimonial iframe {
+                height: 250px;
             }
         }
     </style>
@@ -193,6 +296,52 @@
                 </div>
             </div>
         </div>
+
+        <h1 class="section-title">Student Showcase</h1>
+        
+        <div class="showcase-grid">
+            <div class="showcase-item">
+                <video class="showcase-video" controls>
+                    <source src="firstproject/videos/2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="showcase-overlay">
+                    <h3>Mrs. Shiu Yi</h3>
+                    <p>Referral Video</p>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <video class="showcase-video" controls>
+                    <source src="firstproject/videos/1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="showcase-overlay">
+                    <h3>Mr. Ryan and Solomon</h3>
+                    <p>Referral Video</p>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <img src="firstproject/image/showcase2.jpg" alt="Student Work" class="showcase-image">
+                <div class="showcase-overlay">
+                    <h3>Learning Materials</h3>
+                    <p>Referral Video</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-share">
+            <button class="share-button" onclick="shareOnFacebook()">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+            <button class="share-button" onclick="shareOnTwitter()">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button class="share-button" onclick="shareOnLinkedIn()">
+                <i class="fab fa-linkedin-in"></i>
+            </button>
+        </div>
     </main>
 
     <!-- Back to Top Button -->
@@ -245,6 +394,23 @@
                 top: 0,
                 behavior: 'smooth'
             });
+        }
+
+        // Social Sharing Functions
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out these amazing student testimonials and showcase!");
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
         }
 
         // Hamburger Menu Functionality
