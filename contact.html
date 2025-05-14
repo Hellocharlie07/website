@@ -26,37 +26,44 @@
         /* Page-specific styles */
         .contact-container {
             max-width: 800px;
-            margin: 100px auto 50px;
+            margin: 2rem auto;
             padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .contact-form {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px var(--shadow);
+            display: grid;
+            gap: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text);
             font-weight: 600;
+            color: var(--text);
         }
 
         .form-group input,
         .form-group textarea {
-            width: 100%;
             padding: 0.8rem;
-            border: 1px solid var(--shadow);
-            border-radius: 5px;
-            background-color: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg);
             color: var(--text);
             font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
         }
 
         .form-group textarea {
@@ -65,37 +72,36 @@
         }
 
         .submit-button {
-            background-color: var(--primary);
+            padding: 1rem 2rem;
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
+            border-radius: 4px;
             font-size: 1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: fit-content;
         }
 
         .submit-button:hover {
-            background-color: var(--accent);
-            transform: translateY(-2px);
+            background: var(--secondary);
         }
 
         .contact-info {
             margin-top: 2rem;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px var(--shadow);
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
         }
 
         .contact-info h3 {
-            color: var(--accent);
             margin-bottom: 1rem;
+            color: var(--text);
         }
 
         .contact-info p {
-            margin-bottom: 0.5rem;
+            margin: 0.5rem 0;
+            color: var(--text);
         }
 
         .contact-info a {
@@ -111,18 +117,13 @@
         /* Responsive adjustments for contact page */
         @media screen and (max-width: 768px) {
             .contact-container {
-                margin: 80px auto 30px;
-                padding: 1rem;
-            }
-
-            .contact-form,
-            .contact-info {
+                margin: 1rem;
                 padding: 1.5rem;
             }
 
             .form-group input,
             .form-group textarea {
-                padding: 0.6rem;
+                padding: 0.7rem;
             }
 
             .submit-button {
@@ -133,11 +134,7 @@
 
         @media screen and (max-width: 480px) {
             .contact-container {
-                margin: 70px auto 20px;
-            }
-
-            .contact-form,
-            .contact-info {
+                margin: 0.5rem;
                 padding: 1rem;
             }
 
@@ -147,10 +144,6 @@
 
             .form-group input,
             .form-group textarea {
-                font-size: 0.9rem;
-            }
-
-            .submit-button {
                 font-size: 0.9rem;
             }
         }
