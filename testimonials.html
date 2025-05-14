@@ -27,7 +27,7 @@
         .testimonials-container {
             max-width: 1200px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 2rem;
         }
 
         .testimonials-grid {
@@ -40,7 +40,7 @@
         .testimonial-card {
             background: var(--card-bg);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
@@ -50,127 +50,75 @@
         }
 
         .testimonial-content {
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-content p {
+            font-style: italic;
             color: var(--text);
+            margin-bottom: 1.5rem;
             line-height: 1.6;
-            font-size: 1rem;
         }
 
-        .author-info {
+        .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .author-info img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
+        .author-info {
+            flex: 1;
         }
 
-        .author-details h4 {
+        .author-name {
+            font-weight: 600;
             color: var(--text);
             margin: 0;
-            font-size: 1.1rem;
         }
 
-        .author-details p {
-            color: var(--text-light);
-            margin: 0.2rem 0 0;
+        .author-title {
+            color: var(--secondary);
             font-size: 0.9rem;
+            margin: 0.2rem 0 0;
         }
 
         .testimonial-rating {
-            color: #ffd700;
+            color: #FFD700;
+            font-size: 1.2rem;
             margin-top: 0.5rem;
         }
 
-        .video-testimonial {
-            grid-column: 1 / -1;
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .video-testimonial iframe {
-            width: 100%;
-            max-width: 800px;
-            height: 450px;
-            border: none;
-            border-radius: 4px;
-            margin: 0 auto;
-            display: block;
-        }
-
+        /* Responsive adjustments for testimonials page */
         @media screen and (max-width: 992px) {
             .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .video-testimonial iframe {
-                height: 400px;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
             }
         }
 
         @media screen and (max-width: 768px) {
             .testimonials-container {
-                margin: 1rem auto;
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .testimonials-container {
+                margin: 0.5rem;
+                padding: 1rem;
             }
 
             .testimonials-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
 
             .testimonial-card {
                 padding: 1.2rem;
             }
 
-            .video-testimonial iframe {
-                height: 350px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .testimonials-container {
-                padding: 0 0.5rem;
-            }
-
-            .testimonial-card {
-                padding: 1rem;
-            }
-
-            .author-info img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .author-details h4 {
-                font-size: 1rem;
-            }
-
-            .author-details p {
-                font-size: 0.8rem;
-            }
-
-            .video-testimonial iframe {
-                height: 250px;
-            }
-        }
-
-        /* Fix for landscape orientation on mobile */
-        @media screen and (max-height: 480px) and (orientation: landscape) {
-            .testimonials-container {
-                margin: 60px auto 20px;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .testimonial-content {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -204,71 +152,46 @@
         
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <p class="testimonial-text">"Charlie's teaching style is engaging and effective. I've seen significant improvement in my English skills since starting lessons."</p>
+                <div class="testimonial-content">
+                    <p>"Charlie's teaching style is engaging and effective. I've seen significant improvement in my English skills since starting lessons."</p>
+                </div>
                 <div class="testimonial-author">
                     <img src="firstproject/image/student1.jpg" alt="Student" class="testimonial-avatar">
+                    <div class="author-info">
+                        <h4 class="author-name">Sarah Chen</h4>
+                        <p class="author-title">Intermediate Student</p>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </div>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <p class="testimonial-text">"The personalized approach to learning has made a huge difference. I feel more confident speaking English in professional settings."</p>
+                <div class="testimonial-content">
+                    <p>"The personalized approach to learning has made a huge difference. I feel more confident speaking English in professional settings."</p>
+                </div>
                 <div class="testimonial-author">
                     <img src="firstproject/image/student2.jpg" alt="Student" class="testimonial-avatar">
+                    <div class="author-info">
+                        <h4 class="author-name">Michael Wang</h4>
+                        <p class="author-title">Advanced Student</p>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </div>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <p class="testimonial-text">"Charlie's lessons are well-structured and practical. I've improved my pronunciation and vocabulary significantly."</p>
+                <div class="testimonial-content">
+                    <p>"Charlie's lessons are well-structured and practical. I've improved my pronunciation and vocabulary significantly."</p>
+                </div>
                 <div class="testimonial-author">
                     <img src="firstproject/image/student3.jpg" alt="Student" class="testimonial-avatar">
+                    <div class="author-info">
+                        <h4 class="author-name">Emily Lin</h4>
+                        <p class="author-title">Beginner Student</p>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <h1 class="section-title">Student Showcase</h1>
-        
-        <div class="showcase-grid">
-            <div class="showcase-item">
-                <video class="showcase-video" controls>
-                    <source src="firstproject/videos/2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="showcase-overlay">
-                    <h3>Mrs. Shiu Yi</h3>
-                    <p>Referral Video</p>
-                </div>
-            </div>
-
-            <div class="showcase-item">
-                <video class="showcase-video" controls>
-                    <source src="firstproject/videos/1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="showcase-overlay">
-                    <h3>Mr. Ryan and Solomon</h3>
-                    <p>Referral Video</p>
-                </div>
-            </div>
-
-            <div class="showcase-item">
-                <img src="firstproject/image/showcase2.jpg" alt="Student Work" class="showcase-image">
-                <div class="showcase-overlay">
-                    <h3>Learning Materials</h3>
-                    <p>Referral Video</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="social-share">
-            <button class="share-button" onclick="shareOnFacebook()">
-                <i class="fab fa-facebook-f"></i>
-            </button>
-            <button class="share-button" onclick="shareOnTwitter()">
-                <i class="fab fa-twitter"></i>
-            </button>
-            <button class="share-button" onclick="shareOnLinkedIn()">
-                <i class="fab fa-linkedin-in"></i>
-            </button>
         </div>
     </main>
 
@@ -322,23 +245,6 @@
                 top: 0,
                 behavior: 'smooth'
             });
-        }
-
-        // Social Sharing Functions
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        }
-
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent("Check out these amazing student testimonials and showcase!");
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
         }
 
         // Hamburger Menu Functionality

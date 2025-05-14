@@ -37,85 +37,102 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .contact-section h2 {
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
             color: var(--text);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: fit-content;
+        }
+
+        .submit-button:hover {
+            background: var(--secondary);
         }
 
         .contact-info {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
             margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
         }
 
-        .contact-card {
-            background: var(--background);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .contact-card h3 {
-            color: var(--primary);
+        .contact-info h3 {
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            color: var(--text);
         }
 
-        .contact-card p {
+        .contact-info p {
             margin: 0.5rem 0;
             color: var(--text);
         }
 
-        .contact-card a {
+        .contact-info a {
             color: var(--primary);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .contact-card a:hover {
+        .contact-info a:hover {
             color: var(--accent);
         }
 
-        .booking-button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .booking-button:hover {
-            background: var(--secondary);
-        }
-
-        @media screen and (max-width: 992px) {
-            .contact-info {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        /* Responsive adjustments for contact page */
         @media screen and (max-width: 768px) {
             .contact-container {
                 margin: 1rem;
                 padding: 1.5rem;
             }
 
-            .contact-section {
-                padding: 1.5rem;
+            .form-group input,
+            .form-group textarea {
+                padding: 0.7rem;
             }
 
-            .contact-info {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contact-card {
-                padding: 1.2rem;
+            .submit-button {
+                width: 100%;
+                padding: 0.8rem;
             }
         }
 
@@ -125,16 +142,13 @@
                 padding: 1rem;
             }
 
-            .contact-section {
-                padding: 1rem;
+            .form-group label {
+                font-size: 0.9rem;
             }
 
-            .contact-section h2 {
-                font-size: 1.5rem;
-            }
-
-            .contact-card h3 {
-                font-size: 1.1rem;
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -169,22 +183,16 @@
             <p>Ready to start your learning journey? Here's how you can reach me:</p>
 
             <div class="contact-info">
-                <div class="contact-card">
-                    <h3>Email</h3>
-                    <p><a href="mailto:Hellocharliesj@gmail.com">Hellocharliesj@gmail.com</a></p>
-                </div>
+                <h3>Email</h3>
+                <p><a href="mailto:Hellocharliesj@gmail.com">Hellocharliesj@gmail.com</a></p>
 
-                <div class="contact-card">
-                    <h3>Social Media</h3>
-                    <p><a href="https://www.facebook.com/HelloCharlie07/" target="_blank" rel="noopener noreferrer">Facebook (@HelloCharlie07)</a></p>
-                    <p><a href="https://www.youtube.com/@HelloCharlieEnglishTutor" target="_blank" rel="noopener noreferrer">YouTube (@HelloCharlieEnglishTutor)</a></p>
-                </div>
+                <h3>Social Media</h3>
+                <p><a href="https://www.facebook.com/HelloCharlie07/" target="_blank" rel="noopener noreferrer">Facebook (@HelloCharlie07)</a></p>
+                <p><a href="https://www.youtube.com/@HelloCharlieEnglishTutor" target="_blank" rel="noopener noreferrer">YouTube (@HelloCharlieEnglishTutor)</a></p>
 
-                <div class="contact-card">
-                    <h3>Book a Session</h3>
-                    <p>Schedule your first lesson through Calendly:</p>
-                    <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="booking-button">Book Now</a>
-                </div>
+                <h3>Book a Session</h3>
+                <p>Schedule your first lesson through Calendly:</p>
+                <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="submit-button">Book Now</a>
             </div>
         </section>
     </main>
