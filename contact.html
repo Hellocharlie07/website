@@ -19,191 +19,22 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap">
     </noscript>
 
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="styles.css">
+
     <style>
-        /* Critical CSS */
-        :root {
-            --primary: #003366;
-            --secondary: #2C3E50;
-            --accent: #E67E22;
-            --dark: #2C3E50;
-            --light: #F7F9F9;
-            --background: #F0F0F0;
-            --text: #2C3E50;
-            --card-bg: #F5F5F5;
-            --header-bg: #003366;
-            --footer-bg: #003366;
-            --nav-bg: #003366;
-            --shadow: rgba(0,0,0,0.1);
-            --focus-outline: 2px solid var(--accent);
-        }
-
-        /* Dark theme variables */
-        [data-theme="dark"] {
-            --primary: #1a4a7c;
-            --secondary: #34495e;
-            --background: #1a1a1a;
-            --text: #ffffff;
-            --card-bg: #2d2d2d;
-            --header-bg: #1a4a7c;
-            --footer-bg: #1a4a7c;
-            --nav-bg: #1a4a7c;
-            --shadow: rgba(255,255,255,0.1);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .nav-menu {
-            background-color: var(--nav-bg);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: var(--accent);
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            background-color: #666666;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            z-index: 1002;
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--accent);
-            transform: scale(1.1);
-        }
-
-        .theme-toggle span {
-            display: none;
-        }
-
+        /* Page-specific styles */
         .contact-container {
             max-width: 800px;
             margin: 100px auto 50px;
             padding: 2rem;
         }
 
-        .contact-section {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px var(--shadow);
-        }
-
-        .contact-section h2 {
-            color: var(--text);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px var(--shadow);
-        }
-
-        .contact-card h3 {
-            color: var(--text);
-            margin-bottom: 1rem;
-        }
-
-        .contact-card p {
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-card a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--primary);
-        }
-
-        .booking-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .booking-button:hover {
-            background-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background-color: var(--footer-bg);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-
         .contact-form {
             background-color: var(--card-bg);
-            padding: 2rem;
             border-radius: 10px;
+            padding: 2rem;
             box-shadow: 0 4px 6px var(--shadow);
-            margin-top: 2rem;
         }
 
         .form-group {
@@ -214,14 +45,14 @@
             display: block;
             margin-bottom: 0.5rem;
             color: var(--text);
+            font-weight: 600;
         }
 
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
             padding: 0.8rem;
-            border: 1px solid var(--primary);
+            border: 1px solid var(--shadow);
             border-radius: 5px;
             background-color: var(--background);
             color: var(--text);
@@ -236,11 +67,12 @@
         .submit-button {
             background-color: var(--primary);
             color: white;
-            padding: 1rem 2rem;
             border: none;
+            padding: 1rem 2rem;
             border-radius: 50px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
@@ -249,51 +81,78 @@
             transform: translateY(-2px);
         }
 
-        .form-message {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 5px;
-            display: none;
+        .contact-info {
+            margin-top: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px var(--shadow);
         }
 
-        .form-message.success {
-            background-color: #d4edda;
-            color: #155724;
-            display: block;
+        .contact-info h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
         }
 
-        .form-message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            display: block;
+        .contact-info p {
+            margin-bottom: 0.5rem;
         }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 2px 10px var(--shadow);
-            z-index: 1000;
-            transition: all 0.3s ease;
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .back-to-top:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
+        .contact-info a:hover {
+            color: var(--accent);
         }
 
-        .back-to-top.visible {
-            display: flex;
+        /* Responsive adjustments for contact page */
+        @media screen and (max-width: 768px) {
+            .contact-container {
+                margin: 80px auto 30px;
+                padding: 1rem;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.6rem;
+            }
+
+            .submit-button {
+                width: 100%;
+                padding: 0.8rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .contact-container {
+                margin: 70px auto 20px;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 1rem;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.9rem;
+            }
+
+            .submit-button {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
