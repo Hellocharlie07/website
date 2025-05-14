@@ -3,275 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Charlie - Professional English and Chinese tutor">
-    <meta name="theme-color" content="#003366">
-    <title>Contact Charlie - English Tutor</title>
-
-    <!-- Resource Hints -->
-    <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="preconnect" href="https://calendly.com">
-    <link rel="dns-prefetch" href="https://www.youtube.com">
-    <link rel="dns-prefetch" href="https://calendly.com">
-
-    <!-- Font Optimization -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap">
-    </noscript>
-
-    <!-- Shared CSS -->
+    <title>Contact - Your Name</title>
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        /* Page-specific styles */
-        .contact-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-        }
-
-        .contact-section {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 0.8rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-button {
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: fit-content;
-        }
-
-        .submit-button:hover {
-            background: var(--secondary);
-        }
-
-        .contact-info {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .contact-info p {
-            margin: 0.5rem 0;
-            color: var(--text);
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent);
-        }
-
-        /* Responsive adjustments for contact page */
-        @media screen and (max-width: 768px) {
-            .contact-container {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 0.7rem;
-            }
-
-            .submit-button {
-                width: 100%;
-                padding: 0.8rem;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .contact-container {
-                margin: 0.5rem;
-                padding: 1rem;
-            }
-
-            .form-group label {
-                font-size: 0.9rem;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
-        <span aria-hidden="true">☀️</span>
-        <span class="sr-only">Toggle dark mode</span>
-    </button>
-
-    <nav class="nav-menu" role="navigation" aria-label="Main navigation">
-        <ul role="list">
-            <li><a href="index.html" role="link">HOME</a></li>
-            <li><a href="about.html" role="link">ABOUT</a></li>
-            <li><a href="photos.html" role="link">PHOTOS</a></li>
-            <li><a href="testimonials.html" role="link">TESTIMONIALS</a></li>
-            <li><a href="contact.html" role="link">CONTACT</a></li>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="photos.html">PHOTOS</a></li>
+            <li><a href="testimonials.html">TESTIMONIALS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
         </ul>
     </nav>
 
-    <main class="contact-container">
-        <section class="contact-section">
-            <h2>Contact Charlie</h2>
-            <p>Ready to start your learning journey? Here's how you can reach me:</p>
+    <header>
+        <h1 class="logo">Contact Me</h1>
+        <p class="logo-subtitle">Let's create something beautiful together</p>
+    </header>
 
-            <div class="contact-info">
-                <h3>Email</h3>
-                <p><a href="mailto:Hellocharliesj@gmail.com">Hellocharliesj@gmail.com</a></p>
-
-                <h3>Social Media</h3>
-                <p><a href="https://www.facebook.com/HelloCharlie07/" target="_blank" rel="noopener noreferrer">Facebook (@HelloCharlie07)</a></p>
-                <p><a href="https://www.youtube.com/@HelloCharlieEnglishTutor" target="_blank" rel="noopener noreferrer">YouTube (@HelloCharlieEnglishTutor)</a></p>
-
-                <h3>Book a Session</h3>
-                <p>Schedule your first lesson through Calendly:</p>
-                <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="submit-button">Book Now</a>
+    <div class="container">
+        <div class="contact-container">
+            <div class="contact-section">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Location</h3>
+                        <p>Your City, State</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/1234567890" class="booking-button" target="_blank">Book a Session via WhatsApp</a>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
-
-    <footer role="contentinfo">
-        <p>© 2023 by Hello Charlie English Tutor</p>
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
 
+    <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank">📱</a>
+    <div class="back-to-top">↑</div>
+
     <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            themeToggle.setAttribute('aria-pressed', theme === 'dark');
-            
-            // Update theme toggle icon
-            const themeIcon = themeToggle.querySelector('span[aria-hidden="true"]');
-            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-            themeIcon.style.display = 'block';
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-        }
-
-        // Initialize theme
-        const savedTheme = localStorage.getItem('theme') || 
-                          (prefersDarkScheme.matches ? 'dark' : 'light');
-        setTheme(savedTheme);
-
-        themeToggle.addEventListener('click', toggleTheme);
-
-        // Back to Top Button
-        window.onscroll = function() {
-            const backToTopButton = document.querySelector('.back-to-top');
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        // Back to top button functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
                 backToTopButton.classList.add('visible');
             } else {
                 backToTopButton.classList.remove('visible');
             }
-        };
+        });
 
-        function scrollToTop() {
+        backToTopButton.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
-            });
-        }
-
-        // Hamburger Menu Functionality
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
             });
         });
     </script>
