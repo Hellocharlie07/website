@@ -3,75 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Your Name</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Contact Charlie - Professional English and Chinese tutor">
+    <meta name="theme-color" content="#003366">
+    <title>Contact Charlie - English Tutor</title>
+
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://calendly.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://calendly.com">
+
+    <!-- Font Optimization -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap">
+    </noscript>
+
+    <style>
+        /* Critical CSS */
+        :root {
+            --primary: #003366;
+            --secondary: #2C3E50;
+            --accent: #E67E22;
+            --dark: #2C3E50;
+            --light: #F7F9F9;
+            --background: #F0F0F0;
+            --text: #2C3E50;
+            --card-bg: #F5F5F5;
+            --header-bg: #003366;
+            --footer-bg: #003366;
+            --nav-bg: #003366;
+            --shadow: rgba(0,0,0,0.1);
+            --focus-outline: 2px solid var(--accent);
+        }
+
+        /* Dark theme variables */
+        [data-theme="dark"] {
+            --primary: #1a4a7c;
+            --secondary: #34495e;
+            --background: #1a1a1a;
+            --text: #ffffff;
+            --card-bg: #2d2d2d;
+            --header-bg: #1a4a7c;
+            --footer-bg: #1a4a7c;
+            --nav-bg: #1a4a7c;
+            --shadow: rgba(255,255,255,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu {
+            background-color: var(--nav-bg);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            background-color: #666666;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1002;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle span {
+            display: none;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            padding: 2rem;
+        }
+
+        .contact-section {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        .contact-section h2 {
+            color: var(--text);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+
+        .contact-card h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        .booking-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .booking-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            background-color: var(--background);
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+    </style>
 </head>
 <body>
-    <nav class="nav-menu">
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="photos.html">PHOTOS</a></li>
-            <li><a href="testimonials.html">TESTIMONIALS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <span aria-hidden="true">☀️</span>
+        <span class="sr-only">Toggle dark mode</span>
+    </button>
+
+    <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+        <ul role="list">
+            <li><a href="index.html" role="link">HOME</a></li>
+            <li><a href="about.html" role="link">ABOUT</a></li>
+            <li><a href="photos.html" role="link">PHOTOS</a></li>
+            <li><a href="testimonials.html" role="link">TESTIMONIALS</a></li>
+            <li><a href="contact.html" role="link">CONTACT</a></li>
         </ul>
     </nav>
 
-    <header>
-        <h1 class="logo">Contact Me</h1>
-        <p class="logo-subtitle">Let's create something beautiful together</p>
-    </header>
+    <main class="contact-container">
+        <section class="contact-section">
+            <h2>Contact Charlie</h2>
+            <p>Ready to start your learning journey? Here's how you can reach me:</p>
 
-    <div class="container">
-        <div class="contact-container">
-            <div class="contact-section">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <h3>Email</h3>
-                        <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
-                    </div>
-                    <div class="contact-card">
-                        <h3>Phone</h3>
-                        <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
-                    </div>
-                    <div class="contact-card">
-                        <h3>Location</h3>
-                        <p>Your City, State</p>
-                    </div>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p><a href="mailto:Hellocharliesj@gmail.com">Hellocharliesj@gmail.com</a></p>
                 </div>
-                <a href="https://wa.me/1234567890" class="booking-button" target="_blank">Book a Session via WhatsApp</a>
+                <div class="contact-card">
+                    <h3>Social Media</h3>
+                    <p><a href="https://www.facebook.com/HelloCharlie07/" target="_blank" rel="noopener noreferrer">Facebook (@HelloCharlie07)</a></p>
+                    <p><a href="https://www.instagram.com/hellocharlieenglishtutor/" target="_blank" rel="noopener noreferrer">Instagram (@hellocharlieenglishtutor)</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>Book a Lesson</h3>
+                    <p>Schedule your lesson through Calendly:</p>
+                    <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="booking-button">Book Now</a>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
+    <footer role="contentinfo">
+        <p>© 2023 by Hello Charlie English Tutor</p>
     </footer>
 
-    <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank">📱</a>
-    <div class="back-to-top">↑</div>
-
     <script>
-        // Back to top button functionality
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.setAttribute('aria-pressed', theme === 'dark');
+            
+            // Update theme toggle icon
+            const themeIcon = themeToggle.querySelector('span[aria-hidden="true"]');
+            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+            themeIcon.style.display = 'block';
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        }
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 
+                          (prefersDarkScheme.matches ? 'dark' : 'light');
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Back to Top Button
+        window.onscroll = function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
                 backToTopButton.classList.add('visible');
             } else {
                 backToTopButton.classList.remove('visible');
             }
-        });
+        };
 
-        backToTopButton.addEventListener('click', () => {
+        function scrollToTop() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        });
+        }
     </script>
 </body>
 </html> 
