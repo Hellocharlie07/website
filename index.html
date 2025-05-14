@@ -753,6 +753,220 @@
             white-space: nowrap;
             border: 0;
         }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1200px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .services-container {
+                padding: 0 2rem;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .nav-menu ul {
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 2.8rem;
+            }
+
+            .logo-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .service-card {
+                width: calc(50% - 1rem);
+            }
+
+            .video-card {
+                width: calc(100% - 2rem);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                padding: 0.5rem;
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            header {
+                padding: 1rem 1rem 4rem;
+                margin-top: 8rem;
+            }
+
+            .logo {
+                font-size: 2.2rem;
+            }
+
+            .logo-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .social-links {
+                position: static;
+                margin-top: 1rem;
+                align-items: center;
+            }
+
+            .service-card {
+                width: calc(100% - 2rem);
+            }
+
+            .teacher-references {
+                padding: 1rem;
+            }
+
+            .about-section {
+                padding: 1rem;
+            }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .video-container {
+                padding: 0 1rem;
+            }
+
+            .scroll-arrows {
+                width: calc(100% + 2rem);
+                left: -1rem;
+            }
+
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .logo-subtitle {
+                font-size: 1rem;
+            }
+
+            .service-card {
+                padding: 0.5rem;
+            }
+
+            .service-card h2 {
+                font-size: 1rem;
+            }
+
+            .service-card p {
+                font-size: 0.8rem;
+            }
+
+            .price {
+                font-size: 0.9rem;
+            }
+
+            .book-now-button {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.8rem;
+            }
+
+            .video-card iframe {
+                height: 250px;
+            }
+
+            .top-controls {
+                top: 0.5rem;
+                left: 0.5rem;
+            }
+
+            .theme-toggle,
+            .language-button {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Fix for very small screens */
+        @media screen and (max-width: 320px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .service-card {
+                margin: 0.5rem 0;
+            }
+
+            .video-card iframe {
+                height: 200px;
+            }
+        }
+
+        /* Fix for landscape orientation on mobile */
+        @media screen and (max-height: 480px) and (orientation: landscape) {
+            .nav-menu {
+                position: relative;
+            }
+
+            header {
+                margin-top: 0;
+                padding: 1rem;
+            }
+
+            .social-links {
+                position: static;
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+        /* Fix for tablets in portrait mode */
+        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .service-card {
+                width: calc(50% - 1rem);
+            }
+
+            .video-card {
+                width: calc(100% - 2rem);
+            }
+        }
+
+        /* Fix for tablets in landscape mode */
+        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .service-card {
+                width: calc(33.33% - 1.33rem);
+            }
+
+            .video-card {
+                width: calc(50% - 1rem);
+            }
+        }
     </style>
 </head>
 <body>
