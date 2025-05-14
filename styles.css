@@ -51,6 +51,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-sizing: border-box;
 }
 
 .nav-menu ul {
@@ -67,6 +68,8 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    display: block;
+    padding: 0.5rem 1rem;
 }
 
 .nav-menu a:hover {
@@ -189,11 +192,18 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
+        padding: 0.5rem 0;
     }
 
     .nav-menu li {
         width: 100%;
         text-align: center;
+    }
+
+    .nav-menu a {
+        padding: 0.8rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .section {
@@ -225,6 +235,19 @@ footer {
         height: 35px;
         font-size: 1rem;
     }
+
+    .nav-menu {
+        padding: 0.3rem;
+    }
+
+    .nav-menu ul {
+        gap: 0.3rem;
+    }
+
+    .nav-menu a {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* Fix for very small screens */
@@ -242,6 +265,16 @@ footer {
 @media screen and (max-height: 480px) and (orientation: landscape) {
     .nav-menu {
         position: relative;
+    }
+
+    .nav-menu ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-menu li {
+        width: auto;
     }
 }
 
