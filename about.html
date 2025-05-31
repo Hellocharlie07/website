@@ -117,6 +117,9 @@
     </style>
 </head>
 <body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Hamburger Menu Button -->
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
         <span></span>
@@ -140,7 +143,7 @@
         </ul>
     </nav>
 
-    <main class="about-container">
+    <main id="main-content" class="about-container">
         <section class="about-section">
             <h2>About Charlie</h2>
             <p>Hi there! My name is Charlie, and I'm an 18-year-old tutor passionate about helping kids learn English and Chinese in a way that's fun, engaging, and effective.</p>
@@ -181,76 +184,7 @@
         <p>© 2023 by Hello Charlie English Tutor</p>
     </footer>
 
-    <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            themeToggle.setAttribute('aria-pressed', theme === 'dark');
-            
-            // Update theme toggle icon
-            const themeIcon = themeToggle.querySelector('span[aria-hidden="true"]');
-            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-            themeIcon.style.display = 'block';
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-        }
-
-        // Initialize theme
-        const savedTheme = localStorage.getItem('theme') || 
-                          (prefersDarkScheme.matches ? 'dark' : 'light');
-        setTheme(savedTheme);
-
-        themeToggle.addEventListener('click', toggleTheme);
-
-        // Back to Top Button
-        window.onscroll = function() {
-            const backToTopButton = document.querySelector('.back-to-top');
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Hamburger Menu Functionality
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    </script>
+    <!-- Shared JavaScript -->
+    <script src="shared.js"></script>
 </body>
 </html> 

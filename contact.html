@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Charlie - Professional English and Chinese tutor">
+    <meta name="description" content="Contact Hello Charlie English Tutor for lessons and inquiries">
     <meta name="theme-color" content="#003366">
-    <title>Contact Charlie - English Tutor</title>
+    <title>Contact - Hello Charlie English Tutor</title>
 
     <!-- Resource Hints -->
-    <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="preconnect" href="https://calendly.com">
-    <link rel="dns-prefetch" href="https://www.youtube.com">
-    <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- Font Optimization -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -19,191 +17,53 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap">
     </noscript>
 
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="styles.css">
+
     <style>
-        /* Critical CSS */
-        :root {
-            --primary: #003366;
-            --secondary: #2C3E50;
-            --accent: #E67E22;
-            --dark: #2C3E50;
-            --light: #F7F9F9;
-            --background: #F0F0F0;
-            --text: #2C3E50;
-            --card-bg: #F5F5F5;
-            --header-bg: #003366;
-            --footer-bg: #003366;
-            --nav-bg: #003366;
-            --shadow: rgba(0,0,0,0.1);
-            --focus-outline: 2px solid var(--accent);
-        }
-
-        /* Dark theme variables */
-        [data-theme="dark"] {
-            --primary: #1a4a7c;
-            --secondary: #34495e;
-            --background: #1a1a1a;
-            --text: #ffffff;
-            --card-bg: #2d2d2d;
-            --header-bg: #1a4a7c;
-            --footer-bg: #1a4a7c;
-            --nav-bg: #1a4a7c;
-            --shadow: rgba(255,255,255,0.1);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .nav-menu {
-            background-color: var(--nav-bg);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: var(--accent);
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            background-color: #666666;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            z-index: 1002;
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--accent);
-            transform: scale(1.1);
-        }
-
-        .theme-toggle span {
-            display: none;
-        }
-
+        /* Page-specific styles */
         .contact-container {
             max-width: 800px;
             margin: 100px auto 50px;
             padding: 2rem;
         }
 
-        .contact-section {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px var(--shadow);
-        }
-
-        .contact-section h2 {
-            color: var(--text);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .contact-card {
+        .contact-info {
             background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px var(--shadow);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px var(--shadow);
         }
 
-        .contact-card h3 {
-            color: var(--text);
+        .contact-info h3 {
+            color: var(--accent);
             margin-bottom: 1rem;
         }
 
-        .contact-card p {
-            color: var(--text);
-            margin-bottom: 0.5rem;
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
         }
 
-        .contact-card a {
+        .contact-method i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
             color: var(--accent);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--primary);
-        }
-
-        .booking-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .booking-button:hover {
-            background-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background-color: var(--footer-bg);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
         }
 
         .contact-form {
             background-color: var(--card-bg);
-            padding: 2rem;
             border-radius: 10px;
+            padding: 2rem;
             box-shadow: 0 4px 6px var(--shadow);
-            margin-top: 2rem;
         }
 
         .form-group {
@@ -217,31 +77,31 @@
         }
 
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
             padding: 0.8rem;
-            border: 1px solid var(--primary);
+            border: 1px solid var(--shadow);
             border-radius: 5px;
             background-color: var(--background);
             color: var(--text);
-            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
 
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
         .submit-button {
             background-color: var(--primary);
             color: white;
-            padding: 1rem 2rem;
             border: none;
+            padding: 1rem 2rem;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 1rem;
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         .submit-button:hover {
@@ -249,55 +109,56 @@
             transform: translateY(-2px);
         }
 
-        .form-message {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 5px;
-            display: none;
+        /* Responsive adjustments for contact page */
+        @media screen and (max-width: 768px) {
+            .contact-container {
+                margin: 80px auto 30px;
+                padding: 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 1.5rem;
+            }
         }
 
-        .form-message.success {
-            background-color: #d4edda;
-            color: #155724;
-            display: block;
-        }
+        @media screen and (max-width: 480px) {
+            .contact-container {
+                margin: 70px auto 20px;
+            }
 
-        .form-message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            display: block;
-        }
+            .contact-info,
+            .contact-form {
+                padding: 1rem;
+            }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 2px 10px var(--shadow);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
+            .form-group input,
+            .form-group textarea {
+                padding: 0.6rem;
+            }
 
-        .back-to-top:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .back-to-top.visible {
-            display: flex;
+            .submit-button {
+                padding: 0.8rem 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
     <!-- Theme Toggle -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
         <span aria-hidden="true">☀️</span>
@@ -314,28 +175,46 @@
         </ul>
     </nav>
 
-    <main class="contact-container">
-        <section class="contact-section">
-            <h2>Contact Charlie</h2>
-            <p>Ready to start your learning journey? Here's how you can reach me:</p>
+    <main id="main-content" class="contact-container">
+        <h1>Contact Me</h1>
+        <p>Have questions or want to schedule a lesson? Get in touch!</p>
 
+        <div class="contact-grid">
             <div class="contact-info">
-                <div class="contact-card">
-                    <h3>Email</h3>
-                    <p><a href="mailto:Hellocharliesj@gmail.com">Hellocharliesj@gmail.com</a></p>
+                <h3>Contact Information</h3>
+                <div class="contact-method">
+                    <i>📧</i>
+                    <a href="mailto:Hellocharliesj@gmail.com">Hellocharliesj@gmail.com</a>
                 </div>
-                <div class="contact-card">
-                    <h3>Social Media</h3>
-                    <p><a href="https://www.facebook.com/HelloCharlie07/" target="_blank" rel="noopener noreferrer">Facebook (@HelloCharlie07)</a></p>
-                    <p><a href="https://www.instagram.com/hellocharlieenglishtutor/" target="_blank" rel="noopener noreferrer">Instagram (@hellocharlieenglishtutor)</a></p>
+                <div class="contact-method">
+                    <i>📱</i>
+                    <a href="https://www.facebook.com/HelloCharlie07/" target="_blank" rel="noopener noreferrer">Facebook (@HelloCharlie07)</a>
                 </div>
-                <div class="contact-card">
-                    <h3>Book a Lesson</h3>
-                    <p>Schedule your lesson through Calendly:</p>
-                    <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" class="booking-button">Book Now</a>
+                <div class="contact-method">
+                    <i>📅</i>
+                    <a href="https://calendly.com/hellocharliesj/1-hour-class" target="_blank" rel="noopener noreferrer">Schedule a Lesson</a>
                 </div>
             </div>
-        </section>
+
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form id="contactForm" onsubmit="return handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
     </main>
 
     <!-- Back to Top Button -->
@@ -345,50 +224,29 @@
         <p>© 2023 by Hello Charlie English Tutor</p>
     </footer>
 
+    <!-- Shared JavaScript -->
+    <script src="shared.js"></script>
+
     <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            themeToggle.setAttribute('aria-pressed', theme === 'dark');
+        // Contact Form Handling
+        function handleSubmit(event) {
+            event.preventDefault();
             
-            // Update theme toggle icon
-            const themeIcon = themeToggle.querySelector('span[aria-hidden="true"]');
-            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-            themeIcon.style.display = 'block';
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-        }
-
-        // Initialize theme
-        const savedTheme = localStorage.getItem('theme') || 
-                          (prefersDarkScheme.matches ? 'dark' : 'light');
-        setTheme(savedTheme);
-
-        themeToggle.addEventListener('click', toggleTheme);
-
-        // Back to Top Button
-        window.onscroll = function() {
-            const backToTopButton = document.querySelector('.back-to-top');
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Here you would typically send the data to your server
+            // For now, we'll just log it and show a success message
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            form.reset();
+            
+            return false;
         }
     </script>
 </body>

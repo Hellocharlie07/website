@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Photo Gallery - Charlie's English Tutoring Journey">
+    <meta name="description" content="Photo gallery of Charlie's teaching activities">
     <meta name="theme-color" content="#003366">
-    <title>Photo Gallery - Charlie's English Tutoring</title>
+    <title>Photos - Hello Charlie English Tutor</title>
 
     <!-- Resource Hints -->
-    <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="preconnect" href="https://calendly.com">
-    <link rel="dns-prefetch" href="https://www.youtube.com">
-    <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- Font Optimization -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -24,32 +22,38 @@
 
     <style>
         /* Page-specific styles */
-        .gallery-container {
+        .photos-container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 100px auto 50px;
             padding: 2rem;
         }
 
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            padding: 2rem;
+            margin: 2rem 0;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px var(--shadow);
+            transition: transform 0.3s ease;
             aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            display: block;
         }
 
         .gallery-caption {
@@ -57,99 +61,52 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 51, 102, 0.8);
             color: white;
             padding: 1rem;
+            text-align: center;
             transform: translateY(100%);
             transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
         }
 
         .gallery-item:hover .gallery-caption {
             transform: translateY(0);
         }
 
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            background: var(--primary);
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .filter-button:hover {
-            background: var(--secondary);
-        }
-
-        .filter-button.active {
-            background: var(--secondary);
-        }
-
         /* Responsive adjustments for photos page */
-        @media screen and (max-width: 992px) {
-            .photo-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1.5rem;
-                padding: 1.5rem;
-            }
-        }
-
         @media screen and (max-width: 768px) {
-            .gallery-container {
+            .photos-container {
+                margin: 80px auto 30px;
                 padding: 1rem;
             }
 
             .photo-gallery {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 1rem;
+                padding: 1rem;
             }
 
-            .filter-buttons {
-                gap: 0.5rem;
-            }
-
-            .filter-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
+            .gallery-caption {
+                transform: translateY(0);
+                background: rgba(0, 51, 102, 0.9);
             }
         }
 
         @media screen and (max-width: 480px) {
+            .photos-container {
+                margin: 70px auto 20px;
+            }
+
             .photo-gallery {
                 grid-template-columns: 1fr;
-            }
-
-            .gallery-item {
-                aspect-ratio: 3/2;
-            }
-        }
-
-        /* Fix for landscape orientation on mobile */
-        @media screen and (max-height: 480px) and (orientation: landscape) {
-            .gallery-container {
-                margin: 60px auto 20px;
-            }
-
-            .photo-gallery {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Hamburger Menu Button -->
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
         <span></span>
@@ -173,32 +130,30 @@
         </ul>
     </nav>
 
-    <main class="gallery-container">
-        <h2 class="photos-heading">See What I've Made!</h2>
+    <main id="main-content" class="photos-container">
+        <h1>Photo Gallery</h1>
+        <p>Take a look at some of our fun learning activities!</p>
+
         <div class="photo-gallery">
             <div class="gallery-item">
-                <img src="firstproject/image/1.jpg" alt="Teaching Session" onclick="openModal(this)">
+                <img src="firstproject/image/Meeting.jpg" alt="Friendly conversation session" loading="lazy">
+                <div class="gallery-caption">Friendly Conversation Session</div>
             </div>
             <div class="gallery-item">
-                <img src="firstproject/image/2.jpg" alt="Minecraft Education" onclick="openModal(this)">
+                <img src="firstproject/image/generation Ai.avif" alt="Minecraft Education coding session" loading="lazy">
+                <div class="gallery-caption">Minecraft Education Coding</div>
             </div>
             <div class="gallery-item">
-                <img src="firstproject/image/3.jpg" alt="Gaming Session" onclick="openModal(this)">
+                <img src="firstproject/image/Gaming.png" alt="Gaming session with Roblox" loading="lazy">
+                <div class="gallery-caption">Gaming with Roblox</div>
             </div>
             <div class="gallery-item">
-                <img src="firstproject/image/4.jpg" alt="Crafting Activity" onclick="openModal(this)">
+                <img src="firstproject/image/Cardboard.jpg" alt="Cardboard crafting activity" loading="lazy">
+                <div class="gallery-caption">Cardboard Crafting</div>
             </div>
             <div class="gallery-item">
-                <img src="firstproject/image/5.jpg" alt="Music Lesson" onclick="openModal(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="firstproject/image/6.jpg" alt="Teaching Session" onclick="openModal(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="firstproject/image/7.jpg" alt="Learning Activity" onclick="openModal(this)">
-            </div>
-            <div class="gallery-item">
-                <img src="firstproject/image/8.jpg" alt="Teaching Session" onclick="openModal(this)">
+                <img src="firstproject/image/Piano.jpg" alt="Music lesson with piano" loading="lazy">
+                <div class="gallery-caption">Music Lesson</div>
             </div>
         </div>
     </main>
@@ -206,142 +161,11 @@
     <!-- Back to Top Button -->
     <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 
-    <!-- Modal -->
-    <div id="imageModal" class="modal">
-        <button class="close-modal" onclick="closeModal()">&times;</button>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="">
-            <div class="modal-nav">
-                <button onclick="prevImage()">❮</button>
-                <button onclick="nextImage()">❯</button>
-            </div>
-        </div>
-    </div>
-
     <footer role="contentinfo">
         <p>© 2023 by Hello Charlie English Tutor</p>
     </footer>
 
-    <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            themeToggle.setAttribute('aria-pressed', theme === 'dark');
-            
-            // Update theme toggle icon
-            const themeIcon = themeToggle.querySelector('span[aria-hidden="true"]');
-            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-            themeIcon.style.display = 'block';
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-        }
-
-        // Initialize theme
-        const savedTheme = localStorage.getItem('theme') || 
-                          (prefersDarkScheme.matches ? 'dark' : 'light');
-        setTheme(savedTheme);
-
-        themeToggle.addEventListener('click', toggleTheme);
-
-        // Modal functionality
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const images = document.querySelectorAll('.gallery-item img');
-        let currentIndex = 0;
-
-        function openModal(img) {
-            modal.style.display = 'flex';
-            modalImg.src = img.src;
-            currentIndex = Array.from(images).indexOf(img);
-            // Prevent body scrolling when modal is open
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-            // Restore body scrolling
-            document.body.style.overflow = 'auto';
-        }
-
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            modalImg.src = images[currentIndex].src;
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            modalImg.src = images[currentIndex].src;
-        }
-
-        // Close modal when clicking outside the image
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (modal.style.display === 'flex') {
-                if (e.key === 'Escape') {
-                    closeModal();
-                } else if (e.key === 'ArrowLeft') {
-                    prevImage();
-                } else if (e.key === 'ArrowRight') {
-                    nextImage();
-                }
-            }
-        });
-
-        // Back to Top Button
-        window.onscroll = function() {
-            const backToTopButton = document.querySelector('.back-to-top');
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Hamburger Menu Functionality
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    </script>
+    <!-- Shared JavaScript -->
+    <script src="shared.js"></script>
 </body>
 </html> 
