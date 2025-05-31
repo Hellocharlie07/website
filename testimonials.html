@@ -84,6 +84,37 @@
             margin: 0.5rem 0;
         }
 
+        .video-testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .video-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-card video {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .video-card h3 {
+            color: var(--accent);
+            text-align: center;
+            margin: 0;
+        }
+
         /* Responsive adjustments for testimonials page */
         @media screen and (max-width: 768px) {
             .testimonials-container {
@@ -98,6 +129,11 @@
 
             .testimonial-card::before {
                 font-size: 3rem;
+            }
+
+            .video-testimonials {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
 
@@ -118,6 +154,10 @@
             .author-avatar {
                 width: 40px;
                 height: 40px;
+            }
+
+            .video-card {
+                padding: 0.8rem;
             }
         }
     </style>
@@ -152,6 +192,23 @@
     <main id="main-content" class="testimonials-container">
         <h1>Student Testimonials</h1>
         <p>Hear what my students and their parents have to say about our learning journey together!</p>
+
+        <div class="video-testimonials">
+            <div class="video-card">
+                <video controls width="100%" preload="metadata">
+                    <source src="firstproject/videos/1.mp4" type="video/mp4">
+                    <p>Your browser doesn't support HTML5 video. Here is a <a href="firstproject/videos/1.mp4">link to the video</a> instead.</p>
+                </video>
+                <h3>Student Testimonial Video 1</h3>
+            </div>
+            <div class="video-card">
+                <video controls width="100%" preload="metadata">
+                    <source src="firstproject/videos/2.mp4" type="video/mp4">
+                    <p>Your browser doesn't support HTML5 video. Here is a <a href="firstproject/videos/2.mp4">link to the video</a> instead.</p>
+                </video>
+                <h3>Student Testimonial Video 2</h3>
+            </div>
+        </div>
 
         <div class="testimonial-card">
             <div class="testimonial-content">
