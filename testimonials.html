@@ -160,6 +160,36 @@
                 padding: 0.8rem;
             }
         }
+
+        /* Add these styles to your existing CSS */
+        .video-testimonial {
+            grid-column: span 2;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin-bottom: 1rem;
+            background: var(--surface-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .video-testimonial {
+                grid-column: span 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -247,6 +277,49 @@
                     <div class="author-info">
                         <h4>Michael Lin</h4>
                         <p>Parent of 8-year-old student</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials-grid">
+            <!-- Video Testimonials -->
+            <div class="testimonial-card video-testimonial">
+                <div class="video-container">
+                    <video controls poster="./firstproject/image/Hello (1).png" preload="metadata">
+                        <source src="./firstproject/videos/1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">Video testimonial from a satisfied student</p>
+                    <div class="testimonial-author">
+                        <img src="./firstproject/image/Hello (1).png" alt="Student" class="author-image" onerror="this.onerror=null; this.src='./firstproject/image/Hello (1).png';">
+                        <div class="author-info">
+                            <h4>Student Name</h4>
+                            <p>English Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card video-testimonial">
+                <div class="video-container">
+                    <video controls poster="./firstproject/image/Hello (1).png" preload="metadata">
+                        <source src="./firstproject/videos/2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">Another video testimonial from a happy student</p>
+                    <div class="testimonial-author">
+                        <img src="./firstproject/image/Hello (1).png" alt="Student" class="author-image" onerror="this.onerror=null; this.src='./firstproject/image/Hello (1).png';">
+                        <div class="author-info">
+                            <h4>Student Name</h4>
+                            <p>English Student</p>
+                        </div>
                     </div>
                 </div>
             </div>
